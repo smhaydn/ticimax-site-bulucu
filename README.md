@@ -1,31 +1,81 @@
-# Ticimax Site Bulucu
+# 🛒 Ticimax Site Bulucu
 
-Türkiye'de Ticimax altyapısı kullanan e-ticaret sitelerini bulan, iletişim
-bilgilerini toplayan ve satış takibi yapan masaüstü uygulaması. Veriler
-uygulamanın içinde gömülü gelir.
+Türkiye'de **Ticimax altyapısı kullanan e-ticaret sitelerini** bulan, telefon /
+mail / Instagram / sektör / şehir bilgilerini toplayan ve **satış takibi** yapan
+masaüstü uygulaması. Toplanan **4.161 firma verisi uygulamanın içinde gömülü**
+gelir — kurunca hazır dolu açılır.
 
-> Bu depo **gizli (private)** tutulmalıdır — içinde firma iletişim verileri var.
+> ⚠️ Bu depo **gizli (private)** — içinde firma iletişim verileri var. Herkese açmayın.
 
-## İndirme (kullanacak kişi için)
+---
 
-**Releases** sayfasından son sürümü indir:
+## ⬇️ İNDİRME (en kolay yol)
 
-- **Windows:** `Ticimax Site Bulucu Setup x.x.x.exe` → çift tıkla →
-  "Bilgisayarınızı korudu" çıkarsa **Ek bilgi → Yine de çalıştır** → kur.
-- **Mac (Apple Silicon / M-serisi):** `.dmg` dosyasını aç → uygulamayı
-  **Applications**'a sürükle → ilk açılışta **sağ tık → Aç → Aç** (imzasız uygulama uyarısı).
+Kurulum dosyaları hazır. **[Releases sayfasına git »](https://github.com/smhaydn/ticimax-site-bulucu/releases/latest)**
 
-## Derleme (otomatik)
+| Bilgisayarın | İndireceğin dosya |
+|---|---|
+| 🪟 **Windows** | `Ticimax Site Bulucu Setup 1.x.x.exe` |
+| 🍎 **Mac (M1/M2/M3 – Apple Silicon)** | `Ticimax Site Bulucu-1.x.x-arm64.dmg` |
 
-Kurulum dosyaları GitHub üzerinde otomatik üretilir:
-- **Actions** sekmesi → "Uygulamayı Derle" → **Run workflow** (elle), veya
-- `v1.0.0` gibi bir etiket at → hem Windows `.exe` hem Mac `.dmg` derlenip
-  **Releases**'e eklenir.
+İkisinde de tüm veriler gömülü gelir, ekstra bir şey yapmana gerek yok.
 
-## Geliştirme (kendi bilgisayarında)
+---
+
+## 🪟 WINDOWS KURULUMU
+
+1. Releases'ten **`...Setup...exe`** dosyasını indir.
+2. İndirilen dosyaya **çift tıkla**.
+3. Mavi bir uyarı çıkarsa ("Windows bilgisayarınızı korudu"):
+   **"Ek bilgi"** → **"Yine de çalıştır"** de. (Uygulama imzasız olduğu için normal.)
+4. Kurulum ekranında **İleri / Kur** de, bitir.
+5. **Masaüstündeki "Ticimax Site Bulucu" simgesine** çift tıkla. Açılır, hazır.
+
+---
+
+## 🍎 MAC KURULUMU (Apple Silicon – M1/M2/M3)
+
+1. Releases'ten **`...arm64.dmg`** dosyasını indir.
+2. İndirilen `.dmg`'ye **çift tıkla** → küçük bir pencere açılır.
+3. Açılan pencerede **uygulama simgesini "Applications" klasörüne sürükle**.
+4. **Launchpad** veya **Applications**'tan uygulamayı bul.
+5. İlk açılışta uygulamaya **sağ tık → "Aç"** (normal çift tık DEĞİL) → çıkan
+   uyarıda tekrar **"Aç"**. (İmzasız olduğu için sadece ilk seferde böyle; sonra
+   normal çift tıkla açılır.)
+
+> Not: Bu `.dmg` GitHub'ın gerçek Mac sunucusunda üretildiği için temiz açılır,
+> Terminal komutu gerektirmez.
+
+---
+
+## 🤖 CLAUDE CODE / GELİŞTİRİCİ İLE KURULUM (isteğe bağlı)
+
+Arkadaşının bilgisayarında **Claude Code + GitHub girişi (gh)** varsa, kurulum
+dosyası indirmeden doğrudan kaynaktan çalıştırabilir. Claude Code'a şunu söylemesi yeter:
+
+> "Şu private repoyu klonla ve çalıştır: `smhaydn/ticimax-site-bulucu`"
+
+Ya da terminalde tek tek:
 
 ```bash
+gh repo clone smhaydn/ticimax-site-bulucu
+cd ticimax-site-bulucu
 npm install
-npm start          # uygulamayı çalıştır
-npm run dist       # Windows kurulumu üret (dist/ klasörüne)
+npm start
 ```
+
+Kendi kurulum dosyasını üretmek isterse:
+
+```bash
+npm run dist    # Windows'ta .exe üretir (dist/ klasörüne)
+```
+
+> Bu yol repoya erişim ister (arkadaşın **collaborator** olarak eklenmiş olmalı).
+
+---
+
+## 🔄 Yeni sürüm / güncelleme
+
+Veri güncellenince veya kodda değişiklik olunca yeni bir sürüm etiketi
+(`v1.0.1` gibi) atılır; GitHub Windows `.exe` ve Mac `.dmg`'yi otomatik derleyip
+**Releases**'e ekler. Herkes en güncel dosyayı oradan indirir.
