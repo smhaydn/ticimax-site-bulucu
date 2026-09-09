@@ -1,0 +1,7 @@
+node_modules/
+dist/
+dist-mac/
+*.tar.gz
+*.blockmap
+# Not: baslangic-verisi.json (firma verisi) BİLEREK dahil — uygulama onunla dolu gelsin.
+# Bu yüzden repo GİZLİ (private) olmalı.

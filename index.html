@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ticimax Site Bulucu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Üst bar -->
+  <header class="ust-bar">
+    <div class="marka">
+      <div class="marka-ikon">T</div>
+      <div class="marka-yazi">
+        <h1>Ticimax Site Bulucu</h1>
+        <span>Türkiye e-ticaret pazarı — iletişim bulma aracı</span>
+      </div>
+    </div>
+    <div class="ust-aksiyon">
+      <button id="btnDfs" class="btn btn-birincil">DataForSEO'dan Çek</button>
+      <button id="btnBaslat" class="btn btn-ikincil2">Bilgileri Tamamla (Tara)</button>
+      <button id="btnDurdur" class="btn btn-ikincil" hidden>Durdur</button>
+      <button id="btnExcel" class="btn btn-hayalet">Excel'e Aktar</button>
+      <button id="btnAyar" class="btn btn-hayalet" title="Ayarlar">⚙</button>
+    </div>
+  </header>
+
+  <!-- İlerleme + istatistik -->
+  <section class="pano">
+    <div class="ilerleme-sarma">
+      <div class="ilerleme-cubuk"><div id="ilerlemeDolgu" class="ilerleme-dolgu"></div></div>
+      <span id="ilerlemeYazi" class="ilerleme-yazi">Hazır</span>
+    </div>
+    <div class="istatistikler">
+      <div class="istat"><span id="statToplam" class="istat-sayi">0</span><span class="istat-etiket">Toplam Site</span></div>
+      <div class="istat"><span id="statTelefon" class="istat-sayi">0</span><span class="istat-etiket">Telefonlu</span></div>
+      <div class="istat"><span id="statMail" class="istat-sayi">0</span><span class="istat-etiket">Mailli</span></div>
+      <div class="istat"><span id="statInsta" class="istat-sayi">0</span><span class="istat-etiket">Instagramlı</span></div>
+      <div class="istat istat-hedef"><span id="statSatildi" class="istat-sayi">0</span><span class="istat-etiket">Satıldı</span></div>
+      <div class="istat istat-ciro"><span id="statCiro" class="istat-sayi">0 ₺</span><span class="istat-etiket">Ciro (KDV hariç)</span></div>
+    </div>
+  </section>
+
+  <!-- Filtreler -->
+  <section class="filtre-bar">
+    <input id="arama" class="arama" type="text" placeholder="Ara: site adı, mail, instagram..." />
+    <select id="fSektor" class="sec"><option value="">Tüm sektörler</option></select>
+    <select id="fSehir" class="sec"><option value="">Tüm şehirler</option></select>
+    <select id="fDurum" class="sec">
+      <option value="">Tüm durumlar</option>
+      <option>Yeni</option>
+      <option>Ulaşıldı</option>
+      <option>İlgileniyor</option>
+      <option>Satıldı</option>
+      <option>Olmaz</option>
+    </select>
+    <div class="cip-grup">
+      <button class="cip" data-alan="telefon">Telefonu olan</button>
+      <button class="cip" data-alan="mail">Maili olan</button>
+      <button class="cip" data-alan="instagram">Instagramı olan</button>
+    </div>
+    <span id="sonucSayaci" class="sonuc-sayaci"></span>
+  </section>
+
+  <!-- Toplu işlem çubuğu (seçim yapılınca görünür) -->
+  <section id="topluBar" class="toplu-bar" hidden>
+    <span id="topluSayi" class="toplu-sayi">0 seçili</span>
+    <select id="topluDurum" class="sec">
+      <option>Yeni</option>
+      <option>Ulaşıldı</option>
+      <option>İlgileniyor</option>
+      <option>Satıldı</option>
+      <option>Olmaz</option>
+    </select>
+    <button id="topluUygula" class="btn btn-ikincil2">Seçilenlere Durumu Uygula</button>
+    <button id="topluExcel" class="btn btn-hayalet">Seçilenleri Excel'e Aktar</button>
+    <button id="topluTemizle" class="btn btn-hayalet">Seçimi Temizle</button>
+  </section>
+
+  <!-- Tablo -->
+  <main class="tablo-sarma">
+    <table class="tablo">
+      <thead>
+        <tr>
+          <th class="sec-col"><input type="checkbox" id="tumSec" title="Görünenleri seç" /></th>
+          <th data-sirala="domain">Web Adresi</th>
+          <th data-sirala="telefon">Telefon</th>
+          <th data-sirala="mail">Mail</th>
+          <th data-sirala="instagram">Instagram</th>
+          <th data-sirala="sektor">Sektör</th>
+          <th data-sirala="sehir">Şehir</th>
+          <th data-sirala="durum">Durum</th>
+          <th>Not</th>
+        </tr>
+      </thead>
+      <tbody id="tabloGovde"></tbody>
+    </table>
+    <div id="bosDurum" class="bos-durum">Veritabanı boş. "DataForSEO'dan Çek" ile siteleri getir.</div>
+  </main>
+
+  <!-- Ayarlar penceresi -->
+  <div id="ayarKatman" class="katman" hidden>
+    <div class="modal">
+      <h2>Ayarlar — DataForSEO</h2>
+      <p class="modal-aciklama">
+        Ticimax sitelerini toplu çekmek için DataForSEO hesabının bilgileri gerekir.
+        Bilgiler yalnızca bu bilgisayarda saklanır.
+        <br><a data-dis="https://app.dataforseo.com/api-access">app.dataforseo.com/api-access</a> adresinden alabilirsin.
+      </p>
+      <label>Kullanıcı adı (API login / e-posta)</label>
+      <input id="ayarLogin" type="text" class="arama" placeholder="ornek@mail.com" />
+      <label>Şifre (API password)</label>
+      <input id="ayarSifre" type="password" class="arama" placeholder="•••••••• (değiştirmeyeceksen boş bırak)" />
+      <div class="modal-aksiyon">
+        <button id="ayarSil" class="btn btn-ikincil">Anahtarı Sil</button>
+        <button id="ayarKapat" class="btn btn-hayalet">Vazgeç</button>
+        <button id="ayarKaydet" class="btn btn-birincil">Kaydet</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

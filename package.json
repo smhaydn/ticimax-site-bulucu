@@ -1,0 +1,51 @@
+{
+  "name": "ticimax-site-bulucu",
+  "version": "1.0.0",
+  "description": "Ticimax altyapısı kullanan e-ticaret sitelerini bulan ve iletişim bilgilerini toplayan masaüstü uygulaması",
+  "main": "main.js",
+  "author": "Semih",
+  "scripts": {
+    "start": "electron .",
+    "predist": "node kopyala-veri.js",
+    "dist": "electron-builder --win"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cheerio": "^1.0.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.semih.ticimaxbulucu",
+    "productName": "Ticimax Site Bulucu",
+    "files": [
+      "main.js",
+      "preload.js",
+      "motor.js",
+      "depo.js",
+      "dfs.js",
+      "index.html",
+      "style.css",
+      "renderer.js",
+      "hedef_siteler.json",
+      "baslangic-verisi.json",
+      "veri/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.business"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Ticimax Site Bulucu"
+    }
+  }
+}
