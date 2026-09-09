@@ -125,10 +125,7 @@ app.whenReady().then(() => {
         console.log('[TICIMAX] Başlangıç verisi yüklendi:', baslangic.length);
       }
     } catch (e) {
-      try {
-        jsonOku('hedef_siteler.json').forEach((k) => depo.ekle({ ...k, kaynak: 'tohum' }));
-        depo.kaydet();
-      } catch (e2) { /* tohum da yoksa boş başla */ }
+      console.log('[TICIMAX] Başlangıç verisi okunamadı:', e.message);
     }
   }
 

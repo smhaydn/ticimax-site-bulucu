@@ -30,7 +30,6 @@
       "index.html",
       "style.css",
       "renderer.js",
-      "hedef_siteler.json",
       "baslangic-verisi.json",
       "veri/**/*"
     ],

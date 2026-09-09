@@ -3,5 +3,11 @@ dist/
 dist-mac/
 *.tar.gz
 *.blockmap
+
+# Uygulamayla ilgisi olmayan iç/geliştirme dosyaları (repoda tutulmaz)
+pixra-satis-brief.md
+test.js
+Ticimax Bulucu BAŞLAT.bat
+hedef_siteler.json
 # Not: baslangic-verisi.json (firma verisi) BİLEREK dahil — uygulama onunla dolu gelsin.
 # Bu yüzden repo GİZLİ (private) olmalı.
